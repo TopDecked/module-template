@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { HttpModule, BrowserXhr, Http, RequestOptions, XHRBackend } from '@angular/http';
+import { HttpModule, Http } from '@angular/http';
 import { IonicModule } from 'ionic-angular';
 
 import { ExampleComponent } from './components';
@@ -11,6 +11,7 @@ import { ExampleProviderService } from './providers';
 
 export * from './components';
 export * from './directives';
+export * from './modals';
 export * from './pipes';
 export * from './providers';
 
@@ -47,7 +48,7 @@ export function coreProviders() {
 
 @NgModule({
 	declarations: [
-		coreComponents(), ...coreDirectives(), ...corePipes(), coreProviders()
+		coreComponents(), ...coreDirectives(), ...corePipes(), ...coreModals()
 	],
 	providers: [
 	],
@@ -65,7 +66,7 @@ export class ExampleCommonModule {
 		return {
 			ngModule: ExampleCommonModule,
 			providers: [
-				...coreProviders()
+				...coreProviders(), ...coreModals()
 			]
 		};
 	}
