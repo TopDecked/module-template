@@ -51,6 +51,7 @@ export function coreProviders() {
 		coreComponents(), ...coreDirectives(), ...corePipes(), ...coreModals()
 	],
 	providers: [
+		...coreProviders(), ...coreModals()
 	],
 	exports: [
 		...coreDirectives(), ...corePipes()
